@@ -2,91 +2,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROBUX SHOP</title>
+    <title>Protocols List</title>
     <style>
+        /* Body and page styling */
         body {
+            font-family: 'Montserrat', sans-serif;
             background-color: #1e1e1e;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
+
+        /* Header styling */
         h1 {
-            margin-top: 20px;
-            font-size: 2rem;
+            font-size: 3rem;
+            color: #00d4ff;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 6px rgba(0, 212, 255, 0.4);
         }
-        .separator {
-            border: 1px solid #666;
-            margin: 30px 0;
+
+        /* Protocol container styling */
+        .protocol-container {
+            width: 80%;
+            max-width: 1000px;
         }
-        .shop-section {
-            margin: 20px 0;
+
+        /* Individual protocol box styling */
+        .protocol {
+            background-color: #2e2e2e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border: 1px solid #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        .button {
-            background-color: #00b300;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 10px;
-            display: inline-block;
+
+        .protocol:hover {
+            transform: translateY(-10px);
+            background-color: #1f1f1f;
+        }
+
+        /* Protocol title styling */
+        .protocol h4 {
+            font-size: 1.5rem;
+            color: #ff4081;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .protocol h4::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff4081;
+            transition: width 0.3s ease;
+        }
+
+        .protocol:hover h4::before {
             width: 100px;
-            height: 100px;
         }
-        .square-button {
-            border-radius: 10px;
+
+        /* Protocol description styling */
+        .protocol p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Subtle animation on the container */
+        .protocol-container {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .protocol h4 {
+                font-size: 1.2rem;
+            }
+
+            .protocol p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>ROBUX SHOP</h1>
-    <hr class="separator">
+    <h1>Protocols</h1>
 
-    <div class="shop-section" id="robux-shop">
-        <!-- Dynamic ROBUX buttons will be inserted here by JavaScript -->
-        [ button text ]
+    <div class="protocol-container">
+        <div class="protocol">
+            <h4>A.N.</h4>
+            <p>The A.N. protocol stands for "Action Needed".</p>
+        </div>
+
+        <div class="protocol">
+            <h4>L.I.</h4>
+            <p>The L.I. protocol stands for "Leaked Information".</p>
+        </div>
+
+        <div class="protocol">
+            <h4>R</h4>
+            <p>The R protocol stands for "Raid". When it happens, the server chats will be closed/locked.</p>
+        </div>
     </div>
 
-    <hr class="separator">
-
-    <h1>Other</h1>
-    <div class="shop-section">
-        <button class="button square-button">Gift Card</button>
-    </div>
-
-    <script>
-        // Placeholder JavaScript to fetch and add ROBUX buttons dynamically.
-        // In a real setup, you'd use Roblox API (if accessible) to fetch the gamepasses.
-        
-        // Example of adding a static button
-        const robuxShop = document.getElementById('robux-shop');
-
-        // Dummy buttons for ROBUX
-        const gamepasses = [
-            '25',
-            '50',
-            '75',
-            '100',
-            '125',
-            '150',
-            '175',
-        ];
-
-        gamepasses.forEach(gamepass => {
-            const button = document.createElement('button');
-            button.className = 'button';
-            button.textContent = [ ${gamepass} ];
-            robuxShop.appendChild(button);
-        });
-
-        // If we had access to an API:
-        // fetch("https://roblox-api-for-gamepass.com").then(...).then(data => {
-        //     data.forEach(gamepass => {
-        //         // dynamically create buttons based on data
-        //     });
-        // });
-    </script>
 </body>
 </html>
